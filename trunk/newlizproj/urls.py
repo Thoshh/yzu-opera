@@ -3,8 +3,8 @@ from django.conf import settings
 
 urlpatterns = patterns('',
     # Example:
-    (r'^blog/', include('lizproj.myblog.urls')),
-    (r'^$', 'lizproj.views.index'),
+    (r'^blog/', include('newlizproj.myblog.urls')),
+    (r'^$', 'newlizproj.views.index'),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),
