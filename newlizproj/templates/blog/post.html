@@ -1,0 +1,100 @@
+{% extends "blog/sidebar_post.html" %}
+{% block main %}
+{% load my_filter %}
+<div id="content">
+	<div class="contentTop"></div>
+    <ul id="posts">
+			<div class="context">
+			{% if pre_entry %}
+			    <span class="pre"><a href="{{ pre_entry.get_absolute_url }}">&lt;&lt;&nbsp;&nbsp;{{ pre_entry.title }}</a></span>
+			 |
+			{% endif %}
+			    <span class="top"><a href="/blog/">Home</a></span>
+			{% if next_entry %}
+			 | <span class="next"><a href="{{ next_entry.get_absolute_url }}">{{ next_entry.title }}&nbsp;&nbsp;&gt;&gt;</a></span>
+			{% endif %}
+			</div>			
+            <div class="postsTop"></div>
+            <li>
+                <div class="postHeader">
+                    <h3>{{ entry.pub_date|date:" Y-m-d" }}</h3>
+                    <h2>{{ entry.title }}</h2>
+                </div>
+                <div class="clear"></div>
+                <div class="postBody">
+                    {{ entry.body|escape|linebreaks }}
+					<p></p>
+                </div>
+                <div class="clear"></div>
+                <div class="postFooter">
+                    <div class="tags">
+                            Tag:&nbsp;&nbsp;
+							{% for onetag in entry.tags.all %}
+								<a href="/tag/{{ onetag }}/">{{ onetag }}</a>&nbsp;&nbsp;
+							{% endfor %}
+                    </div>
+                    <div class="menubar">
+						Post on {{ entry.pub_date|date:"H:m:s" }}
+						|
+						<a class="cmt" href="#cmt_form">Comment(<span class="count">{{ entry.comment_set.count }}</span>)</a>
+						|
+						<a class="edit" href="edit">Edit</a>
+                    </div>
+                    <div class="relpost">
+                        <br/>
+                        <h2>Random Posts</h2>
+						<div class="randpost">
+						{% for rand in rand_entry %}
+						<div>
+						<a href="{{ rand.get_absolute_url }}">{{ rand.title }}</a>&nbsp;&nbsp;{{ rand.pub_date|date:" Y-m-d" }}
+						</div>
+						{% endfor %}
+						</div>
+                    </div>
+                </div>
+            </li>
+    </ul>
+	<a name="cmt_form"></a>
+    <div id="comments">
+        <h2>All Comments</h2>
+        {% for cmt in comment_list %}
+            <li id="comment-{{ cmt.id }}">
+            {% if cmt.website %}
+                <h3 class="commenttitle"><a href="http://{{ cmt.website }}">{{ cmt.author }}</a>&gt;&gt;</h3>
+            {% else %}
+                <h3 class="commenttitle">{{ cmt.author }}&gt;&gt;</h3>
+            {% endif %}
+            <div class="cmtBody">
+				<p>{{ cmt.date|date:"Y-m-j H:i" }}</p>
+                {{ cmt.body }}
+            </div>
+            </li>
+        {% endfor %}
+    </div>
+    <div id="commentForm">
+        <h2>Leave Comment Here</h2>
+        <form method="post" action="/blog/cmtsave/">
+        <div>
+            <label for="cname">Name</label>
+            <input class="textField" id="cname" name="name" type="text" />
+        </div>        
+        <div>
+            <label for="cemail">E-Mail</label>
+            <input class="textField" id="cemail" name="email" type="text" />
+        </div>
+        <div>
+            <label for="chomepage">Home Page</label>
+            <input class="textField" id="chomepage" name="homepage" type="text" />
+        </div>
+        <div>
+            <textarea name="content" rows="8"></textarea>
+        </div>
+        <div class="submit">
+            <input type="hidden" name="postid" value="{{ entry.id }}" />
+            <input class="button" name="addsub" value="Submit" type="submit" />
+        </div>
+        </form>
+    </div>
+    <div class="contentBottom"></div>
+</div>
+{% endblock %}

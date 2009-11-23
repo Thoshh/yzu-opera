@@ -1,0 +1,95 @@
+{% extends "blog/base_post.html" %}
+{% block extrahead %}
+    <script type="text/javascript" src="/site_media/js/myjs.js"></script>
+    <script type="text/javascript" src="/site_media/js/tag.js"></script>
+    <link href="/site_media/css/tag.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/ui.datepicker.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/site_media/js/ui.datepicker.js"></script>    
+{% endblock %}
+
+{% block main %} {% endblock %} 
+
+{% block sidebar %}
+<div id="sidebar">
+	<div class="sideTop"></div>
+    
+    <div id="myInform" class="module">
+        <div class="modTop"></div>
+        <a href="/blog/aboutme/"><h2>About Me</h2></a>
+        <div class="modBody">
+        <ul>
+            <span style="color:#a0efa2;font-size:120%;font-weight:bold;">Welcome</span>
+            <span style="font-size:90%">to My English </span>Blog!<br/>
+            <span style="font-size:90%">I am </span>
+            <span style="color:#f7c3cc;font-size:110%;">Lizzie</span>,
+            Love <span style="color:#ccf3e7;font-size:120%;font-weight:bold;">Python</span>
+            <span style="font-size:90%">and</span> 
+            <span style="color:#d0d6f9;font-size:120%;font-weight:bold;">Linux</span>.
+            <span style="font-size:82%">
+            Still Student Now and Interested in </span>
+            <span style="color:#f7aad0;font-size:100%;">Data Mining</span>
+            <p id="aboutme"><a href="/blog/aboutme/">&gt;&gt;</a></p>
+        <ul>
+        </div>
+        <div class="modBottom"></div>    
+    </div>
+    
+    <div id="time" class="module">
+        <div class="modTop"></div>
+        <h2>Time</h2>
+        <div class="modBody">
+            <div id="date"></div>
+            <script charset="utf-8" type="text/javascript">
+                $('#date').datepicker({onSelect: function(date) { location.href="/blog/date/"+date+"/"; }});	
+            </script>
+        </div>
+        <div class="modBottom"></div>    
+    </div> 
+    
+    <div id="tag" class="module">
+        <div class="modTop"></div>
+        <h2>Tag Cloud</h2>
+        <div class="modBody">
+        <ul>
+            {% for onetag in tags %}
+                <li>
+                <a class="size{{ onetag.entry_set.count }}" id="j{{ onetag.id }}" href="{{ onetag.get_absolute_url }}">{{ onetag }}
+                <span class="count">[{{ onetag.entry_set.count}}]</span></a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        </div>
+        <div class="modBottom"></div>    
+    </div>    
+
+    <div id="rss" class="module">
+        <div class="modTop"></div>
+        <h2>RSS</h2>
+        <div class="modBody">
+        <ul>
+            <a href="/blog/feeds/rss/"><img border="0" title="rss_img" alt="rss_img" src="/site_media/img/rss.gif">&nbsp;</img></a><br/>
+            <a href="http://fusion.google.com/add?feedurl=http://www.lizziesky.cn/blog/feeds/rss/"><img border="0" title="rss_google" alt="rss_google" src="/site_media/img/rss_google.gif">&nbsp;</img></a><br/>
+            <a href="http://www.zhuaxia.com/add_channel.php?url=http://www.lizziesky.cn/blog/feeds/rss/"><img border="0" title="rss_zhuaxia" alt="rss_zhuaxia" src="/site_media/img/rss_zhuaxia.gif">&nbsp;</img></a><br/>
+            <a href="http://www.xianguo.com/subscribe.php?url=http://www.lizziesky.cn/blog/feeds/rss/"><img border="0" title="rss_xianguo" alt="rss_xianguo" src="/site_media/img/rss_xianguo.jpg">&nbsp;</img></a>
+        </ul>
+        </div>
+        <div class="modBottom"></div>    
+    </div> 
+        
+    <div id="map" class="module">
+        <div class="modTop"></div>
+        <h2>Map</h2>
+        <div class="modBody">
+        <ul>
+            <p>Map...</p>
+        </ul>
+        </div>
+        <div class="modBottom"></div>    
+    </div> 
+        
+    <div class="sideBottom"/></div>
+
+</div>
+
+{% endblock %}
