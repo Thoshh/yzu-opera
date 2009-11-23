@@ -65,7 +65,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'lizproj.urls'
-STATIC_PATH = '/home/shengyan/workspace/lizproj/media'
+STATIC_PATH = './media'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.

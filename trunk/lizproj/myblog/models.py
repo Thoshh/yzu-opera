@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib import admin
+#from models import Author
 # Create your models here.
 #class User(models.Model):#X
 #    GENDER_CHOICES=(
@@ -16,10 +17,13 @@ from django.db import models
 #    class  Admin:
 #        list_display = ('name', 'gender',)
 #        search_fields = ('name',)        
+
+class TagAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug":('title',)}  
     
 class Tag(models.Model):
-    slug=models.SlugField(prepopulate_from=('title',), primary_key=True)
-    title=models.CharField(maxlength=30)
+    slug=models.SlugField(primary_key=True)
+    title=models.CharField(max_length=30)
     description=models.TextField(help_text='Short summary of this tag')
 
     def __str__(self):
@@ -35,8 +39,9 @@ class Tag(models.Model):
     class Meta:
         ordering = ('title',)
 
+
 class Entry(models.Model):
-    title=models.CharField(maxlength=200)
+    title=models.CharField(max_length=200)
     body=models.TextField()
     pub_date=models.DateTimeField()
 
@@ -58,9 +63,9 @@ class Entry(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Entry)
 
-    author = models.CharField(maxlength=64)
+    author = models.CharField(max_length=64)
     email  = models.EmailField()
-    website = models.CharField(maxlength=128)
+    website = models.CharField(max_length=128)
                         
     body = models.TextField(null=True)
     date = models.DateTimeField()
@@ -79,9 +84,9 @@ class Comment(models.Model):
         return "/blog/post/%i#cmt_form" % self.post.id    
 
 class Links(models.Model):
-    name = models.CharField(maxlength=64)
+    name = models.CharField(max_length=64)
     #website = models.CharField(maxlength=128)
     website = models.URLField()
-    description = models.CharField(maxlength=128)
+    description = models.CharField(max_length=128)
     class Admin:
         list_display = ('name', 'website', 'description')

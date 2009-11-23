@@ -5,13 +5,13 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import Http404
 from django.shortcuts import render_to_response
-from lizproj.myblog.models import Entry
-from lizproj.myblog.models import Tag
-from lizproj.myblog.models import Comment
-from lizproj.myblog.models import Links
+from myblog.models import Entry
+from myblog.models import Tag
+from myblog.models import Comment
+from myblog.models import Links
 import datetime
 from django.views.generic.list_detail import object_list
-from django.core.paginator import ObjectPaginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage
 import random
 
 def show_frontpage(request):
@@ -21,7 +21,7 @@ def show_frontpage(request):
     
     #current=datetime.date.today()
     #request.session["time"]=current
-    paginator = ObjectPaginator(Entry.objects.order_by('-pub_date'), 3)
+    paginator = Paginator(Entry.objects.order_by('-pub_date'), 3)
     all_entry = Entry.objects.order_by('-pub_date')
     tags=Tag.objects.all()
     comment_list=Comment.objects.order_by('-date')
@@ -29,22 +29,23 @@ def show_frontpage(request):
     links = Links.objects.all()
     try:
         page = int(request.GET.get('page', '1'))
-        entry = paginator.get_page(page-1)
+        print page
+        entry = paginator.page(page).object_list
     except  InvalidPage:
         raise Http404
     return render_to_response("blog/main.html",{
             'paginator': paginator,#X
             'entry_list': entry,
             'all_entry_list': all_entry,#change to sidebar ??
-            'is_paginated': paginator.pages > 1,
-            'has_next': paginator.has_next_page(page - 1),
-            'has_previous': paginator.has_previous_page(page - 1),
+            'is_paginated': paginator.num_pages > 1,
+            'has_next': paginator.page(page).has_next(),
+            'has_previous': paginator.page(page).has_previous(),
             'current_page': page,
             'next_page': page + 1,
             'previous_page': page - 1,
-            'pages': paginator.pages,
-            'hits' : paginator.hits,#X
-            'page_numbers': range(paginator.pages+1)[1:],
+            'pages': paginator.num_pages,
+           # 'hits' : paginator.hits,#X
+            'page_numbers': range(paginator.num_pages+1)[1:],
             'comment_list': comment_list,#change to sidebar ??
             'tags': tags,
             #'year': current.year,
@@ -108,7 +109,7 @@ def get_posts_by_date(request,year,month,day):
     time=datetime.date(int(year),int(month),int(day))
     #current=datetime.date.today()
     #request.session["time"]=current
-    paginator = ObjectPaginator(Entry.objects.filter(pub_date__year=time.year, pub_date__month=time.month, pub_date__day=time.day), 10)
+    paginator = Paginator(Entry.objects.filter(pub_date__year=time.year, pub_date__month=time.month, pub_date__day=time.day), 10)
     all_entry = Entry.objects.order_by('-pub_date')
     tags=Tag.objects.all()
     comment_list=Comment.objects.order_by('-date')
@@ -116,7 +117,7 @@ def get_posts_by_date(request,year,month,day):
     links = Links.objects.all()
     try:
         page = int(request.GET.get('page', '1'))
-        entry = paginator.get_page(page-1)
+        entry = paginator.page(page)
     except  InvalidPage:
         raise Http404
 
@@ -124,15 +125,15 @@ def get_posts_by_date(request,year,month,day):
                 'paginator': paginator,#X
                 'entry_list': entry,
                 'all_entry_list': all_entry,
-                'is_paginated': paginator.pages > 1,
-                'has_next': paginator.has_next_page(page - 1),
-                'has_previous': paginator.has_previous_page(page - 1),
+                'is_paginated': paginator.num_pages > 1,
+                'has_next': paginator.page(page).has_next(),
+                'has_previous': paginator.page(page).has_previous(),
                 'current_page': page,
                 'next_page': page + 1,
                 'previous_page': page - 1,
-                'pages': paginator.pages,
-                'hits' : paginator.hits,#X
-                'page_numbers': range(paginator.pages+1)[1:],
+                'pages': paginator.num_pages,
+                #'hits' : paginator.hits,#X
+                'page_numbers': range(paginator.num_pages+1)[1:],
                 'comment_list': comment_list,
                 'tags': tags,
                 #'year': current.year,
@@ -141,7 +142,7 @@ def get_posts_by_date(request,year,month,day):
 
 def get_posts_by_tag(request,tagname):
     tag = Tag.objects.filter(title=tagname)[0]
-    paginator = ObjectPaginator(tag.entry_set.all(), 10)
+    paginator = Paginator(tag.entry_set.all(), 10)
     all_entry = Entry.objects.order_by('-pub_date')
     tags=Tag.objects.all()
     comment_list=Comment.objects.order_by('-date')
@@ -149,7 +150,7 @@ def get_posts_by_tag(request,tagname):
     links = Links.objects.all()
     try:
         page = int(request.GET.get('page', '1'))
-        entry = paginator.get_page(page-1)
+        entry = paginator.page(page)
     except  InvalidPage:
         raise Http404
 
@@ -157,15 +158,15 @@ def get_posts_by_tag(request,tagname):
                 'paginator': paginator,#X
                 'entry_list': entry,
                 'all_entry_list': all_entry,
-                'is_paginated': paginator.pages > 1,
-                'has_next': paginator.has_next_page(page - 1),
-                'has_previous': paginator.has_previous_page(page - 1),
+                'is_paginated': paginator.num_pages > 1,
+                'has_next': paginator.page(page).has_next(),
+                'has_previous': paginator.page(page).has_previous(),
                 'current_page': page,
                 'next_page': page + 1,
                 'previous_page': page - 1,
-                'pages': paginator.pages,
-                'hits' : paginator.hits,#X
-                'page_numbers': range(paginator.pages+1)[1:],
+                'pages': paginator.num_pages,
+               # 'hits' : paginator.hits,#X
+                'page_numbers': range(paginator.num_pages+1)[1:],
                 'comment_list': comment_list,
                 'tags': tags,
                 #'year': current.year,
@@ -293,7 +294,7 @@ def search_blog(request):
     keywords = request.GET.get('keywords')
     if keywords:
         #query_string = r'^.*'+keywords+'.*$'
-        paginator = ObjectPaginator(Entry.objects.filter(body__icontains=keywords), 10)
+        paginator = Paginator(Entry.objects.filter(body__icontains=keywords), 10)
         all_entry = Entry.objects.order_by('-pub_date')
         tags=Tag.objects.all()
         comment_list=Comment.objects.order_by('-date')
@@ -301,20 +302,20 @@ def search_blog(request):
         links = Links.objects.all()
         try:
             page = int(request.GET.get('page', '1'))
-            entry = paginator.get_page(page-1)
+            entry = paginator.page(page)
         except  InvalidPage:
             raise Http404
         return render_to_response("blog/main.html",{
                 'entry_list': entry,
                 'all_entry_list': all_entry,#change to sidebar ??
-                'is_paginated': paginator.pages > 1,
-                'has_next': paginator.has_next_page(page - 1),
-                'has_previous': paginator.has_previous_page(page - 1),
+                'is_paginated': paginator.num_pages > 1,
+                'has_next': paginator.page(page).has_next(),
+                'has_previous': paginator.page(page).has_previous(),
                 'current_page': page,
                 'next_page': page + 1,
                 'previous_page': page - 1,
-                'pages': paginator.pages,
-                'page_numbers': range(paginator.pages+1)[1:],
+                'pages': paginator.num_pages,
+                'page_numbers': range(paginator.num_pages+1)[1:],
                 'comment_list': comment_list,#change to sidebar ??
                 'tags': tags,
                 'link_list': links,
