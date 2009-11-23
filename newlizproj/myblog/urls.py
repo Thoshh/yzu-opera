@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lizproj.myblog.my_feeds import MyRssFeed, AtomFeed
+from newlizproj.myblog.my_feeds import MyRssFeed, AtomFeed
 
 feeds={
 	'rss':MyRssFeed,
