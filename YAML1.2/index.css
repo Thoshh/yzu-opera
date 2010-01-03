@@ -1,0 +1,91 @@
+/* ::::: http://www.yaml.org/spec/1.2/single_html.css ::::: */
+
+body { font-family: sans-serif; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); }
+div.abstract p.title, div.toc p, p.releaseinfo em, div.figure p.title, div.example p.title, span.term, h1, h2, h3, h4, h5, h6 { color: rgb(0, 90, 156); }
+h1 { font-size: 170%; font-style: normal; font-weight: normal; }
+div.abstract p.title, div.toc p, h2 { font-size: 140%; font-style: normal; font-weight: normal; }
+h3 { font-size: 120%; font-style: normal; font-weight: normal; }
+p.releaseinfo em, h4 { font-size: 100%; font-style: normal; font-weight: bold; }
+div.figure p.title, div.example p.title, span.term, h5 { font-size: 80%; font-style: normal; font-weight: bold; }
+span.term tt { font-size: 120%; font-style: normal; }
+h6 { font-size: 60%; font-style: normal; font-weight: bold; }
+div.toc p b, div.abstract p.title b { font-weight: normal; }
+div.author h3 { color: rgb(0, 0, 0); font-weight: bold; font-style: normal; font-size: 100%; margin-bottom: 0pt; }
+div.toc span.appendix, div.toc span.chapter { font-weight: bold; }
+div.sect1 table.simplelist { width: 100%; }
+div.sect1 table.simplelist td { vertical-align: top; }
+div.figure div.informaltable table, div.figure table.simplelist, div.figure table.simplelist td { width: auto; }
+div.figure div.informaltable table td { border-style: none; }
+div.figure div.informaltable table { border-color: rgb(0, 0, 0); }
+div.example pre.programlisting { border-style: ridge; padding: 0.25em; background-color: rgb(224, 248, 224); width: 90%; }
+div.example pre.synopsis { line-height: 150%; }
+div.example pre.screen { border-style: ridge; padding: 0.25em; background-color: rgb(248, 224, 224); width: 90%; }
+table.productionset { border-style: ridge; background-color: rgb(224, 248, 248); width: 90%; }
+table.productionset table.productionset { border-style: none; width: 90%; }
+td.productioncounter { font-family: monospace; padding-right: 0.5em; }
+td.productionlhs { font-family: monospace; white-space: nowrap; }
+td.productionseperator { font-family: monospace; padding-left: 0.5em; padding-right: 0.5em; }
+td.productionrhs { font-family: monospace; white-space: nowrap; width: 100%; }
+div.variablelist dt { margin-top: 1em; }
+dd p { margin-top: 0pt; }
+code.filename { border: 1px solid rgb(0, 0, 0); padding: 0px; font-family: monospace; background-color: rgb(248, 248, 224); }
+code.literal { border: 1px solid rgb(0, 0, 0); padding: 0px; font-family: monospace; background-color: rgb(224, 224, 248); }
+span.property { border: 1px solid rgb(0, 0, 0); padding: 0px; font-family: monospace; background-color: rgb(248, 224, 248); }
+code.constant { border: 1px solid rgb(0, 0, 0); padding: 0px; font-family: monospace; background-color: rgb(224, 248, 248); }
+span.honorific > code.filename { padding: 4px 1px; line-height: 175%; }
+span.honorific > code.constant { padding: 4px 1px; line-height: 175%; }
+span.honorific > span.property { padding: 4px 1px; line-height: 175%; }
+span.honorific > code.literal { padding: 4px 1px; line-height: 175%; }
+a[href^="#"] { background: transparent url('term.png') no-repeat scroll right bottom; text-decoration: none; color: black; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+a[href^="#"]:hover, div.indexdiv a, div.toc a { background: transparent none repeat scroll 0% 0%; text-decoration: underline; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; color: blue; }
+pre.synopsis a { background: transparent none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+table.productionset a { background: transparent none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+a.preferred { font-style: italic; }
+@media screen {
+	em.diigoHighlight { text-align: inherit; text-decoration: inherit; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-size: inherit; line-height: inherit; font-size-adjust: inherit; font-stretch: inherit; -x-system-font: none; color: inherit; display: inline; position: relative; }
+	em.diigoHighlight.a.mouseOvered { background-color: rgb(255, 198, 42) ! important; }
+	em.diigoHighlight.b.mouseOvered, em.diigoHighlight.c.mouseOvered { border-bottom: 2px solid rgb(255, 198, 42); }
+	em.diigoHighlight.c { color: rgb(0, 0, 153); }
+	em.diigoHighlight.c.mouseOvered { color: rgb(255, 198, 42); }
+	em.diigoHighlight.a.yellow { background-color: rgb(255, 255, 153); }
+	em.diigoHighlight.b.yellow, em.diigoHighlight.c.yellow { border-bottom: 2px solid rgb(255, 255, 153); }
+	img.diigoHighlight.yellow { cursor: pointer; outline-color: rgb(255, 255, 153); outline-style: solid; outline-width: 2px; }
+	em.diigoHighlight.a.blue { background-color: rgb(171, 213, 255); }
+	em.diigoHighlight.b.blue, em.diigoHighlight.c.blue { border-bottom: 2px solid rgb(171, 213, 255); }
+	img.diigoHighlight.blue { cursor: pointer; outline-color: rgb(171, 213, 255); outline-style: solid; outline-width: 2px; }
+	em.diigoHighlight.a.green { background-color: rgb(178, 229, 126); }
+	em.diigoHighlight.b.green, em.diigoHighlight.c.green { border-bottom: 2px solid rgb(178, 229, 126); }
+	img.diigoHighlight.green { cursor: pointer; outline-color: rgb(178, 229, 126); outline-style: solid; outline-width: 2px; }
+	em.diigoHighlight.a.pink { background-color: rgb(255, 204, 204); }
+	em.diigoHighlight.b.pink, em.diigoHighlight.c.pink { border-bottom: 2px solid rgb(255, 204, 204); }
+	img.diigoHighlight.pink { cursor: pointer; outline-color: rgb(255, 204, 204); outline-style: solid; outline-width: 2px; }
+	img.diigoHighlight.mouseOvered { cursor: pointer; outline-color: rgb(255, 198, 42); outline-style: solid; outline-width: 2px; }
+	div.diigotb-inline-cloud { position: fixed ! important; width: 440px ! important; height: 370px ! important; left: 0pt; top: 0pt; background-color: rgb(254, 245, 199) ! important; z-index: 1410065407 ! important; display: none; -moz-border-radius-topleft: 15px ! important; -moz-border-radius-topright: 15px ! important; -moz-border-radius-bottomright: 15px ! important; -moz-border-radius-bottomleft: 15px ! important; }
+	#diigotb-upload-cover { background: transparent url('undefined') repeat scroll 0pt 0pt; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; cursor: crosshair; height: 100%; left: 0pt; position: fixed; top: 0pt; width: 100%; z-index: 99999; }
+	#diigotb-upload-box { border: 1px solid rgb(255, 255, 255); background: transparent url('undefined') repeat scroll 0pt 0pt; z-index: 190000; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; position: absolute; cursor: crosshair; }
+	.diigotb-upload-result { border: 1px solid rgb(0, 0, 0); background: transparent url('undefined') repeat scroll 0% 0%; z-index: 100000; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; position: fixed; }
+	.diigoHighlight .diigoHighlightLabel sup { font-family: "lucida grande",tahoma,verdana,arial,sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 8px; line-height: 8px; font-size-adjust: none; font-stretch: normal; -x-system-font: none; text-decoration: none; background-color: inherit; cursor: default; }
+	body.diigoHiPen.yellow { cursor: url('undefined'), text ! important; }
+	body.diigoHiPen.blue { cursor: url('undefined'), text ! important; }
+	body.diigoHiPen.green { cursor: url('undefined'), text ! important; }
+	body.diigoHiPen.pink { cursor: url('undefined'), text ! important; }
+	em.diigoHighlight.type_0.commented { padding-left: 30px; }
+	div.diigoHighlight.type_2 { background: transparent url('undefined') no-repeat scroll 50% 50%; position: absolute; width: 29px; height: 36px; text-align: center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; z-index: 9996; }
+	div.diigoHighlight.type_2.mouseOvered { background: transparent url('undefined') no-repeat scroll 0% 0%; position: absolute; width: 37px; height: 31px; text-align: center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; z-index: 9996; }
+	div.diigoHighlight.type_2 span { color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-style: normal; font-variant: normal; font-weight: bold; font-size: 13px; font-size-adjust: none; font-stretch: normal; -x-system-font: none; cursor: default; line-height: 37px; text-shadow: 0pt 1px 0pt rgb(255, 255, 255); }
+	div.diigoIcon.commented.TextIcon.diigoEdit { background-repeat: no-repeat ! important; background-position: right center ! important; }
+	div.diigoIcon.commented.ImageIcon.diigoEdit { background-repeat: no-repeat ! important; background-position: right center ! important; }
+	div.diigoIcon { margin: 0pt; padding: 0px; background: transparent url('undefined') no-repeat scroll left center; cursor: pointer ! important; position: absolute; display: none; width: 24px ! important; z-index: 999999; height: 23px ! important; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+	div.diigoIcon span { color: rgb(0, 0, 0); display: block; font-family: Helvetica,Arial,sans-serif; font-size: 13px; font-weight: 700; line-height: 18px; text-align: center; text-shadow: 0pt 1px 1px rgb(255, 255, 255); }
+	div.diigoIcon.commented.ImageIcon { display: block ! important; background-color: transparent ! important; }
+	div.diigoIcon:hover { background-repeat: no-repeat ! important; background-position: right center ! important; }
+	div.diigoIcon.commented.TextIcon { display: block ! important; left: 0pt; bottom: 0pt; }
+	div.diigoIcon.commented.public { background: rgb(255, 255, 255) url('undefined') no-repeat scroll left center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+	div.diigoIcon.commented.private { background: rgb(255, 255, 255) url('undefined') no-repeat scroll left center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+	div.diigoIcon.commented.group { background: rgb(255, 255, 255) url('undefined') no-repeat scroll left center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; }
+	div.diigoClipVideo { border-style: solid; border-color: rgb(204, 204, 204); border-width: 1px 1px 0pt; padding: 0pt 16px 0pt 6px; background: rgb(245, 245, 245) url('undefined') no-repeat scroll right 0pt; float: left; height: 16px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; font-family: "lucida grande",tahoma,verdana,arial,sans-serif; z-index: 999; position: absolute; }
+	div.diigoClipVideo.clipped { background-position: right -32px; left: 717px; top: 135px; }
+	div.diigoClipVideo span { font-weight: bold; font-size: 10px; line-height: 16px; text-decoration: underline; color: rgb(0, 51, 255); cursor: pointer; margin-right: 6px; }
+	div.diigoClipVideo span:hover, div.diigoClipVideo span:active { color: rgb(0, 0, 255); }
+}
+dummyrulefordigg {  }
