@@ -80,6 +80,7 @@ def compress_file(path):
     from subprocess import Popen
     print '  Running yuicompressor...',
     try:
+        print path
         cmd = Popen(['java', '-jar', COMPRESSOR, '--charset', 'UTF-8',
                      path, '-o', path])
         if cmd.wait() == 0:
@@ -87,9 +88,10 @@ def compress_file(path):
         else:
             print 'Failed!'
     except:
-        raise MediaGeneratorError("Failed to execute Java VM. "
-            "Please make sure that you have installed Java "
-            "and that it's in your PATH.")
+        pass
+        #raise MediaGeneratorError("Failed to execute Java VM. "
+        #    "Please make sure that you have installed Java "
+        #    "and that it's in your PATH.")
 
 def get_file_path(handler, target, media_dirs, **kwargs):
     if isinstance(handler, basestring):
