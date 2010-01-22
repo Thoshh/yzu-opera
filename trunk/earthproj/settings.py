@@ -10,6 +10,7 @@ MEDIA_VERSION = 1
 # browser connections).
 #if on_production_server or not have_appserver:
 #    MEDIA_URL = 'http://media.mydomain.com/media/%d/'
+MY_MEDIA_URL = '/media/'  #与app.yaml中一致
 
 # Add base media (jquery can be easily added via INSTALLED_APPS)
 COMBINE_MEDIA = {
@@ -59,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'ragendja.middleware.ErrorMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Django authentication
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.auth.middleware.AuthenticationMiddleware',
     # Google authentication
     'ragendja.auth.middleware.GoogleAuthenticationMiddleware',
     # Hybrid Django/Google authentication
@@ -102,8 +103,8 @@ INSTALLED_APPS = (
     'appenginepatcher',
     'ragendja',
     #'myapp',
-    'registration',
-    'mediautils',
+    #'registration',
+    #'mediautils',
     #'guestbook',
     'earth',
 )
