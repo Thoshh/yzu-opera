@@ -61,9 +61,9 @@ MIDDLEWARE_CLASSES = (
     # Django authentication
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     # Google authentication
-    #'ragendja.auth.middleware.GoogleAuthenticationMiddleware',
+    'ragendja.auth.middleware.GoogleAuthenticationMiddleware',
     # Hybrid Django/Google authentication
-    'ragendja.auth.middleware.HybridAuthenticationMiddleware',
+    #'ragendja.auth.middleware.HybridAuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'ragendja.sites.dynamicsite.DynamicSiteIDMiddleware',
@@ -72,14 +72,14 @@ MIDDLEWARE_CLASSES = (
 )
 
 # Google authentication
-#AUTH_USER_MODULE = 'ragendja.auth.google_models'
-#AUTH_ADMIN_MODULE = 'ragendja.auth.google_admin'
+AUTH_USER_MODULE = 'ragendja.auth.google_models'
+AUTH_ADMIN_MODULE = 'ragendja.auth.google_admin'
 # Hybrid Django/Google authentication
-AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
+#AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 
-LOGIN_URL = '/guestbook/login/'
-LOGOUT_URL = '/guestbook/logout/'
-LOGIN_REDIRECT_URL = '/guestbook/'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+LOGIN_REDIRECT_URL = '/'
 
 INSTALLED_APPS = (
     # Add jquery support (app is in "common" folder). This automatically
@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'jquery',
 
     # Add blueprint CSS (http://blueprintcss.org/)
-    'blueprintcss',
+    #'blueprintcss',
 
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -101,10 +101,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'appenginepatcher',
     'ragendja',
-    'myapp',
+    #'myapp',
     'registration',
     'mediautils',
-    'guestbook',
+    #'guestbook',
+    'earth',
 )
 
 # List apps which should be left out from app settings and urlsauto loading

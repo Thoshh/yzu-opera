@@ -2,7 +2,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.views.generic.list_detail import object_listfrom django.views.generic.create_update import create_objectfrom django.contrib.auth.decorators import login_requiredfrom guestbook.models import Greeting
+from django.views.generic.list_detail import object_list
+from django.views.generic.create_update import create_object
+from django.contrib.auth.decorators import login_required
+from guestbook.models import Greeting
 
 def create_new_user(request):
     form = UserCreationForm()
