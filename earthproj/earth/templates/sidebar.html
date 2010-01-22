@@ -1,0 +1,28 @@
+{% extends "earth/base.html" %}
+{% block page-sidebar %}
+{% block page-sidebar-up %}{% endblock %}
+<ul>
+    <li id="contact">
+        <h3>关注我们</h3>
+        <div class="sidebar-div">
+            <a href="#" title="Blog Feed"><img alt="RSS订阅Blog" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/feed.png"/></a>
+            <a href="#" title="Twitter"><img alt="Twitter" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/twitter.png"/></a>
+            <a href="#" title="Video"><img alt="Flicker" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/flickr.png"/></a>
+            <a href="#" title="Video"><img alt="RSS订阅Comment" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/feed.png"/></a>
+            <a href="#" title="Video"><img alt="Picasa" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/picasa.png"/></a>
+            <a href="#" title="Video"><img alt="Google" src="{{ SITE_PARAM.MEDIA_URL }}images/icon/google.png"/></a>
+        </div>
+    </li>
+    <li id="tagcloud">
+        <h3>标签</h3>
+        <div class="sidebar-div">
+            <a href="#" title="查看google所有文章">google(20)</a>
+            <a href="#" title="google">google(20)</a>
+            <a href="#" title="google">google(20)</a>
+            <a href="#" title="google">google(20)</a>
+            <a href="#" title="google">google(20)</a>
+        </div>
+    </li>
+    {% block page-sidebar-down %}{% endblock %}
+</ul>
+{% endblock %}
